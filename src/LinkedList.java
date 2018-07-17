@@ -154,6 +154,45 @@ public class LinkedList {
         return head;
     }
 
+    public boolean hasCycle(LinkedListNode head)
+    {
+        if(head == null)
+            return false;
+
+        LinkedListNode slow = head;
+        LinkedListNode fast = head;
+
+        while(fast.next!=null && fast.next.next!=null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow==fast)
+                return true;
+        }
+        return false;
+    }
+
+    public LinkedListNode plusOne(LinkedListNode head){
+        if(plusOneHelper(head) == 0)
+        {
+            return head;
+        }
+
+        LinkedListNode node = new LinkedListNode(1);
+        node.next = head;
+        return node;
+    }
+
+    public int plusOneHelper(LinkedListNode node)
+    {
+        if(node == null) return 1;
+
+        int sum = node.data + plusOneHelper(node);
+        node.data = sum%10;
+        return sum/10;
+    }
+
 
 
 
