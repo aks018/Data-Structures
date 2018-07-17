@@ -80,6 +80,82 @@ public class LinkedList {
         }
     }
 
+    public LinkedListNode mergeTwoListsRecursive(LinkedListNode l1, LinkedListNode l2)
+    {
+        if(l1 == null ) return l2;
+        if(l2 == null) return l1;
+
+        if(l1.data <= l2.data) {
+            mergeTwoListsRecursive(l1.next, l2);
+            return l1;
+        }
+        else
+        {
+            mergeTwoListsRecursive(l1,l2.next);
+            return l2;
+        }
+    }
+
+    public LinkedListNode mergeTwoLists(LinkedListNode l1, LinkedListNode l2)
+    {
+        if(l1 == null && l2 == null)
+            return null;
+        if(l1==null)
+            return l2;
+        if(l2 == null)
+            return l1;
+
+        LinkedListNode result = new LinkedListNode(0);
+        LinkedListNode cur = result;
+
+        while(l1!=null && l2==null)
+        {
+            if(l1.data <= l2.data)
+            {
+                cur.next = l1;
+                l1 = l1.next;
+            }
+            else
+            {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+
+        if(l1!=null)
+        {
+            cur.next = l1;
+        }
+        if(l2!=null)
+        {
+            cur.next = l2;
+        }
+
+        return result.next;
+    }
+
+    public LinkedListNode deleteDuplicates(LinkedListNode head)
+    {
+        LinkedListNode ans = head;
+
+        while(ans!=null && ans.next!=null)
+        {
+            if(ans.data == ans.next.data)
+            {
+                ans.next = ans.next.next;
+            }
+            else
+            {
+                ans = ans.next;
+            }
+        }
+
+        return head;
+    }
+
+
+
 
 
 }
