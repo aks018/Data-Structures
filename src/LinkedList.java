@@ -1,3 +1,7 @@
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+
 class LinkedListNode{
     int data;
     LinkedListNode next;
@@ -203,6 +207,7 @@ public class LinkedList {
             LinkedListNode cur = new LinkedListNode(0);
             int sum = ((l2==null) ? 0:l2.data) + ((l1==null)?0:l1.data) + carry;
             cur.data = sum%10;
+            carry = sum%10;
             ans.next = cur;
             ans = cur;
 
@@ -214,6 +219,60 @@ public class LinkedList {
         return head.next;
 
 
+    }
+
+    public LinkedListNode addTwoNumbersPartTwo(LinkedListNode l1, LinkedListNode l2)
+    {
+        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>();
+
+        while(l1!=null)
+        {
+            s1.push(l1.data);
+            l1 = l1.next;
+        }
+
+        while(l2!=null)
+        {
+            s2.push(l2.data);
+            l2 = l2.next;
+        }
+
+        int sum =0;
+        LinkedListNode head = new LinkedListNode(0);
+
+        while(!s1.isEmpty() || !s2.isEmpty()){
+            if(!s1.isEmpty()) sum+=s1.pop();
+            if(!s2.isEmpty()) sum+=s2.pop();
+
+            head.data = sum%10;
+            LinkedListNode cur = new LinkedListNode(0);
+            cur.next = head;
+            head = cur;
+
+            sum/=10;
+
+        }
+
+        return head.data == 0 ? head.next : head;
+
+    }
+
+    public int numComponents(LinkedListNode head, int[] G)
+    {
+        Set<Integer> s = new HashSet<>();
+        for(int i:G) s.add(i);
+        int total = 0;
+        while(head!=null)
+        {
+            if(s.contains(head.data) && (!s.contains(head.next.data) || head.next==null))
+            {
+                total++;
+            }
+            head = head.next;
+        }
+
+        return total;
     }
 
 
