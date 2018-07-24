@@ -1,8 +1,10 @@
+package Trie;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-//Trie built using LinkedList
+//Trie.Trie built using LinkedList.LinkedList
  class AutocompleteTrieNode {
         char data;
         LinkedList<AutocompleteTrieNode> children;

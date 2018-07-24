@@ -1,4 +1,4 @@
-/*
+package Trie;/*
 A trie and sometimes even radix tree or prefix tree is an ordered tree structure, which takes advantage of the keys it stores;
 usually strings. A node's position in the tree defines the key with which that node is associated, which makes tries
 different in comparison to binary search trees, in which a node stores a key that corresponds only to that node. All descendants of a node
@@ -52,7 +52,7 @@ public class Trie {
                 children.put(c,t);
             }
 
-            //Update children to be of the new AutocompleteTrieNode
+            //Update children to be of the new Trie.AutocompleteTrieNode
             children = t.children;
 
             //If we reach the end of the word, set the trie node of this word to be true so when we search for it we are able to find it.
@@ -83,7 +83,7 @@ public class Trie {
         return true;
     }
 
-    //Search the Trie for the word passed
+    //Search the Trie.Trie for the word passed
     public TrieNode searchNode(String word)
     {
         Map<Character, TrieNode> children = root.children;

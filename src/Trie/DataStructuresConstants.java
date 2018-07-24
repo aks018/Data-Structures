@@ -1,3 +1,5 @@
+package Trie;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;

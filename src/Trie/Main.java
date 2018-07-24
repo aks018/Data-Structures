@@ -1,3 +1,5 @@
+package Trie;
+
 import java.util.List;
 
 public class Main {
@@ -5,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         DataStructuresConstants constants = new DataStructuresConstants();
 
-        //Testing Trie
+        //Testing Trie.Trie
         Trie trie = new Trie();
         for (String word : constants.getDictionary(constants.dictionaryArr)) {
             trie.insert(word);
@@ -30,7 +32,7 @@ public class Main {
         System.out.println("---------------------------------------------------------------------------");
 
         //Now let's build a trie to help us work with an autocomplete function
-        System.out.println("Autocompelte Trie: ");
+        System.out.println("Autocompelte Trie.Trie: ");
         AutocompleteTrie t = new AutocompleteTrie();
         t.insert("amazon");
         t.insert("amazon prime");
@@ -50,7 +52,7 @@ public class Main {
         System.out.println("---------------------------------------------------------------------------");
 
         //Another autocomplete trie using char[]
-        System.out.println("Autocompelte Trie Using Char[]: ");
+        System.out.println("Autocompelte Trie.Trie Using Char[]: ");
         TrieWithCharArray tc = new TrieWithCharArray();
         tc.addWord("amazon");
         tc.addWord("amazonprime");

@@ -1,3 +1,5 @@
+package LinkedList;
+
 class DoublyLinkedListNode{
     int data;
     DoublyLinkedListNode prev;

@@ -1,3 +1,5 @@
+package Trie;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -23,7 +25,7 @@ class Node{
     }
 }
 /*
-Traverse through the Trie to find the node which stores the last character of the prefix.
+Traverse through the Trie.Trie to find the node which stores the last character of the prefix.
 Two cases may occur
 Either the prefix gets exhausted
 We reach a null node.
@@ -72,11 +74,11 @@ public class TrieWithCharArray {
     }
 
     /*
-    Start from the root of the Trie
+    Start from the root of the Trie.Trie
     For the first character in the word, find if there exist a child node to the root containing that character.
     If no node is present, then add a node with the first character of the word, and subsequently add child nodes for the following characters.
     For e.g. If AGRA was the first word to be added, we add the node with A as a child of the root and subsequent children for G, R and A
-    If the node is found, move to the next character in the word and the child node in the Trie.
+    If the node is found, move to the next character in the word and the child node in the Trie.Trie.
     Repeat this process until either the word is exhausted or we reach to a null child node.
     For e.g. In an attempt to add AJMER after adding AGRA, we start from the root, and discover that the node with label A exists. Where A is the first character in AJMER.
     Then we move to the node A and try to find J in its children list. But we do not find J, instead if we try to fetch a node with J which is the child of node A, we will get a null node.
