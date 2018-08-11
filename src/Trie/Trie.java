@@ -2,7 +2,7 @@ package Trie;/*
 A trie and sometimes even radix tree or prefix tree is an ordered tree structure, which takes advantage of the keys it stores;
 usually strings. A node's position in the tree defines the key with which that node is associated, which makes tries
 different in comparison to binary search trees, in which a node stores a key that corresponds only to that node. All descendants of a node
-have a common prefix of a StringClass associated with that node, whereas the root is associated with an empty StringClass.
+have a common prefix of a String.StringClass associated with that node, whereas the root is associated with an empty String.StringClass.
  */
 
 import java.util.*;
