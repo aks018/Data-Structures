@@ -1,6 +1,7 @@
 package String;
 
 import java.lang.String;
+import java.util.HashSet;
 
 public class StringClass {
 
@@ -93,6 +94,101 @@ public class StringClass {
         }
 
         return 0;
+    }
+
+    /*
+    709.
+    Input: "Hello"
+    Output: "hello"
+     */
+
+    public String toLowerCase(String str) {
+
+        char[] a = str.toCharArray();
+
+        for (int i = 0; i < a.length; i++) {
+            if ('A' <= a[i] && a[i] <= 'Z')
+                a[i] = (char) (a[i] - 'A' + 'a');
+        }
+
+        return new String(a);
+
+    }
+
+
+    /*
+    804.
+    Input: words = ["gin", "zen", "gig", "msg"]
+    Output: 2
+    Explanation:
+    The transformation of each word is:
+    "gin" -> "--...-."
+    "zen" -> "--...-."
+    "gig" -> "--...--."
+    "msg" -> "--...--."
+
+    There are 2 different transformations, "--...-." and "--...--.".
+     */
+
+    String[] dictionary = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+
+    public int uniqueMorseRepresentations(String[] words) {
+        HashSet<String> hashSet = new HashSet<>();
+        for (String w : words) {
+            hashSet.add(getCode(w));
+        }
+
+        return hashSet.size();
+    }
+
+    private String getCode(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            sb.append(dictionary[c - 'a']);
+        }
+
+        return sb.toString();
+    }
+
+
+    /*
+    657.
+    Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.
+
+    The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.
+    Input: "UD"
+    Output: true
+     */
+
+    public boolean judgeCircle(String moves) {
+        //left = (0,-1)
+        //right= (0,1)
+        //up=(-1,0)
+        //down(1,0)
+        int row = 0;
+        int col = 0;
+        for (char c : moves.toCharArray()) {
+            switch (c) {
+                case 'U':
+                    row--;
+                    break;
+                case 'D':
+                    row++;
+                    break;
+                case 'L':
+                    col--;
+                    break;
+                case 'R':
+                    col++;
+                    break;
+            }
+        }
+        if (row == 0 && col == 0)
+            return true;
+        return false;
+
     }
 
 }
